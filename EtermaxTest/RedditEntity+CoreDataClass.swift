@@ -2,7 +2,7 @@
 //  RedditEntity+CoreDataClass.swift
 //  EtermaxTest
 //
-//  Created by Gustavo Alfonso on 6/4/17.
+//  Created by Gustavo Alfonso on 10/4/17.
 //  Copyright © 2017 Gustavo Alfonso. All rights reserved.
 //
 

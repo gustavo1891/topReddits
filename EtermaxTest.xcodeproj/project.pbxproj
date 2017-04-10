@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7AFC1468CEBD41CB88508749 /* Pods_EtermaxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F42C6BB92E97FFC1915C3B /* Pods_EtermaxTest.framework */; };
+		EC262BCF1E9B3CB000999E0E /* defaultImg.png in Resources */ = {isa = PBXBuildFile; fileRef = EC262BCE1E9B3CB000999E0E /* defaultImg.png */; };
+		EC262BDA1E9B4DD700999E0E /* RedditEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC262BD81E9B4DD700999E0E /* RedditEntity+CoreDataClass.swift */; };
+		EC262BDB1E9B4DD700999E0E /* RedditEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC262BD91E9B4DD700999E0E /* RedditEntity+CoreDataProperties.swift */; };
 		EC6B16F71E96EA7F003E3FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B16F61E96EA7F003E3FC9 /* AppDelegate.swift */; };
 		EC6B16F91E96EA7F003E3FC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B16F81E96EA7F003E3FC9 /* ViewController.swift */; };
 		EC6B16FC1E96EA7F003E3FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6B16FA1E96EA7F003E3FC9 /* Main.storyboard */; };
@@ -16,16 +19,18 @@
 		EC6B17041E96EA7F003E3FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6B17021E96EA7F003E3FC9 /* LaunchScreen.storyboard */; };
 		EC6B170E1E96EB96003E3FC9 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B170D1E96EB96003E3FC9 /* ConnectionManager.swift */; };
 		EC6B17101E96EC5F003E3FC9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B170F1E96EC5F003E3FC9 /* DataManager.swift */; };
-		EC6B17271E96FE8E003E3FC9 /* RedditEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B17251E96FE8E003E3FC9 /* RedditEntity+CoreDataClass.swift */; };
-		EC6B17281E96FE8E003E3FC9 /* RedditEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B17261E96FE8E003E3FC9 /* RedditEntity+CoreDataProperties.swift */; };
 		EC6B17721E97118A003E3FC9 /* RedditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B17711E97118A003E3FC9 /* RedditTableViewCell.swift */; };
 		EC6B17761E9AE787003E3FC9 /* RedditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6B17751E9AE787003E3FC9 /* RedditTableViewCell.xib */; };
+		EC6B17781E9B069C003E3FC9 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B17771E9B069C003E3FC9 /* LoadingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0506D06A397DBE2665A55271 /* Pods-EtermaxTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EtermaxTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-EtermaxTest/Pods-EtermaxTest.release.xcconfig"; sourceTree = "<group>"; };
 		51F42C6BB92E97FFC1915C3B /* Pods_EtermaxTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EtermaxTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFFCBA70D2B1A8CEB5D5093 /* Pods-EtermaxTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EtermaxTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EtermaxTest/Pods-EtermaxTest.debug.xcconfig"; sourceTree = "<group>"; };
+		EC262BCE1E9B3CB000999E0E /* defaultImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImg.png; sourceTree = "<group>"; };
+		EC262BD81E9B4DD700999E0E /* RedditEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RedditEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EC262BD91E9B4DD700999E0E /* RedditEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RedditEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EC6B16F31E96EA7F003E3FC9 /* EtermaxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EtermaxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6B16F61E96EA7F003E3FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC6B16F81E96EA7F003E3FC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,10 +41,9 @@
 		EC6B17051E96EA7F003E3FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6B170D1E96EB96003E3FC9 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		EC6B170F1E96EC5F003E3FC9 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		EC6B17251E96FE8E003E3FC9 /* RedditEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RedditEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		EC6B17261E96FE8E003E3FC9 /* RedditEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RedditEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EC6B17711E97118A003E3FC9 /* RedditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditTableViewCell.swift; sourceTree = "<group>"; };
 		EC6B17751E9AE787003E3FC9 /* RedditTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedditTableViewCell.xib; sourceTree = "<group>"; };
+		EC6B17771E9B069C003E3FC9 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EC262BCB1E9B3AFA00999E0E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				EC262BCE1E9B3CB000999E0E /* defaultImg.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		EC6B16EA1E96EA7F003E3FC9 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +104,7 @@
 		EC6B16F51E96EA7F003E3FC9 /* EtermaxTest */ = {
 			isa = PBXGroup;
 			children = (
+				EC262BCB1E9B3AFA00999E0E /* Images */,
 				EC6B17701E97116B003E3FC9 /* Cells */,
 				EC6B17141E96F002003E3FC9 /* NSManagedObjects */,
 				EC6B17121E96EC80003E3FC9 /* ViewControllers */,
@@ -126,8 +139,8 @@
 		EC6B17141E96F002003E3FC9 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				EC6B17251E96FE8E003E3FC9 /* RedditEntity+CoreDataClass.swift */,
-				EC6B17261E96FE8E003E3FC9 /* RedditEntity+CoreDataProperties.swift */,
+				EC262BD81E9B4DD700999E0E /* RedditEntity+CoreDataClass.swift */,
+				EC262BD91E9B4DD700999E0E /* RedditEntity+CoreDataProperties.swift */,
 			);
 			name = NSManagedObjects;
 			sourceTree = "<group>";
@@ -137,6 +150,7 @@
 			children = (
 				EC6B17711E97118A003E3FC9 /* RedditTableViewCell.swift */,
 				EC6B17751E9AE787003E3FC9 /* RedditTableViewCell.xib */,
+				EC6B17771E9B069C003E3FC9 /* LoadingCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -205,6 +219,7 @@
 			files = (
 				EC6B17041E96EA7F003E3FC9 /* LaunchScreen.storyboard in Resources */,
 				EC6B17011E96EA7F003E3FC9 /* Assets.xcassets in Resources */,
+				EC262BCF1E9B3CB000999E0E /* defaultImg.png in Resources */,
 				EC6B16FC1E96EA7F003E3FC9 /* Main.storyboard in Resources */,
 				EC6B17761E9AE787003E3FC9 /* RedditTableViewCell.xib in Resources */,
 			);
@@ -265,14 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC262BDA1E9B4DD700999E0E /* RedditEntity+CoreDataClass.swift in Sources */,
 				EC6B16FF1E96EA7F003E3FC9 /* EtermaxTest.xcdatamodeld in Sources */,
 				EC6B17101E96EC5F003E3FC9 /* DataManager.swift in Sources */,
-				EC6B17271E96FE8E003E3FC9 /* RedditEntity+CoreDataClass.swift in Sources */,
 				EC6B17721E97118A003E3FC9 /* RedditTableViewCell.swift in Sources */,
 				EC6B170E1E96EB96003E3FC9 /* ConnectionManager.swift in Sources */,
+				EC262BDB1E9B4DD700999E0E /* RedditEntity+CoreDataProperties.swift in Sources */,
 				EC6B16F91E96EA7F003E3FC9 /* ViewController.swift in Sources */,
+				EC6B17781E9B069C003E3FC9 /* LoadingCell.swift in Sources */,
 				EC6B16F71E96EA7F003E3FC9 /* AppDelegate.swift in Sources */,
-				EC6B17281E96FE8E003E3FC9 /* RedditEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

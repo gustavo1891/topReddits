@@ -13,11 +13,19 @@ import Alamofire
 import SwiftyJSON
 import CoreData
 
+protocol ConnectionManagerDelegate {
+    func remoteDataLoaded(results:[RedditEntity])
+    func connectionDidFail(error:NSError)
+}
+
 class ConnectionManager:NSObject{
     
     private override init() { }
     static let sharedInstance: ConnectionManager = ConnectionManager()
     let searchEndpointURL = "https://www.reddit.com/top/.json"
+    var delegate : ConnectionManagerDelegate?
+    var redditPage = 1
+    var nextPage = ""
     
     func isInternetAvailable() -> Bool
     {
@@ -42,61 +50,55 @@ class ConnectionManager:NSObject{
     
 
     func searchTopReddits(_ CallbackParameter: @escaping (_ error : NSError?, _ message : String?, _ objects: [RedditEntity]) -> ()){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.getContext()
+        
         // Display an Activity Indicator in the status bar
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         var topReddits: [RedditEntity] = []
         
         
-        Alamofire.request(searchEndpointURL).responseJSON { response in
+        Alamofire.request(self.searchEndpointURL).responseJSON { response in
             switch response.result {
             case .success(let value):
                 DataManager.sharedInstance.deleteAllRecords()
                 let json = JSON(value)
                 var records = json["data"]
-                if let jsonArr:[JSON] = records["children"].array {
-                    for redditJSON in jsonArr {
-                        
-                        // Parse Object
-                        var objectData = redditJSON["data"]
-                        let obj = NSEntityDescription.insertNewObject(forEntityName:"RedditEntity", into:context) as! RedditEntity
-                        obj.author = objectData["author"].string
-                        obj.commentsCount = objectData["num_comments"].int16!
-                        obj.creationDate = objectData["created_utc"].int16!
-                        obj.subreddit = objectData["subreddit"].string
-                        obj.thumbnail = objectData["thumbnail"].string
-                        obj.title = objectData["title"].string
-                        
-                        topReddits.append(obj)
-                        
-                    }
-                }
-                
-                // Dismiss an Activity Indicator in the status bar
+                self.nextPage = records["after"].string!
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                do {
-                    try context.save()
-                    
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
-                }
-                
+                topReddits = DataManager.sharedInstance.parseRedditResults(results: value)
                 CallbackParameter(nil, "Success", topReddits)
-                
-                
             case .failure(let error):
                 print("Request failed with error: \(error)")
-                
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
                 CallbackParameter(error as NSError?, "Error", topReddits)
             }
         }
         
     }
 
+    func getRedditNextPage(delegate:ConnectionManagerDelegate){
+        self.delegate = delegate
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        var topReddits: [RedditEntity] = []
+        let url = "\(self.searchEndpointURL)?count=\(25*self.redditPage)&after=\(self.nextPage)"
+
+        Alamofire.request(url).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                var records = json["data"]
+                self.nextPage = records["after"].string!
+                topReddits = DataManager.sharedInstance.parseRedditResults(results: value)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.redditPage = self.redditPage + 1
+                self.delegate?.remoteDataLoaded(results: topReddits)
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.delegate?.connectionDidFail(error: error as NSError)
+            }
+        }
+
+    }
     
 }

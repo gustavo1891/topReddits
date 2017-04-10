@@ -9,28 +9,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EtermaxTest/DataManager.swift"
-            timestampString = "513359175.042618"
+            filePath = "EtermaxTest/ViewController.swift"
+            timestampString = "513494957.702888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "parseRedditInfo(records:)"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "remoteDataLoaded(results:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EtermaxTest/ConnectionManager.swift"
-            timestampString = "513441110.577322"
+            timestampString = "513494957.702888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "searchTopReddits(_:)"
             landmarkType = "7">
          </BreakpointContent>

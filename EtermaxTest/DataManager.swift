@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import SwiftyJSON
 
 class DataManager: NSObject {
     
@@ -22,12 +23,46 @@ class DataManager: NSObject {
         return true
     }
     
-    func parseRedditInfo(records:NSDictionary){
-        print("\(records["children"])")
+    func parseRedditResults(results:Any) -> [RedditEntity]{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.getContext()
+        let json = JSON(results)
+        var topReddits: [RedditEntity] = []
+        var records = json["data"]
+        if let jsonArr:[JSON] = records["children"].array {
+            for redditJSON in jsonArr {
+                
+                // Parse Object
+                var objectData = redditJSON["data"]
+                let obj = NSEntityDescription.insertNewObject(forEntityName:"RedditEntity", into:context) as! RedditEntity
+                obj.author = objectData["author"].string
+                obj.commentsCount = objectData["num_comments"].int16!
+                obj.creationDate = objectData["created_utc"].int64!
+                obj.subreddit = objectData["subreddit"].string
+                obj.thumbnail = objectData["thumbnail"].string
+                obj.title = objectData["title"].string
+                
+                topReddits.append(obj)
+                
+            }
+        }
+        saveResults(context: context)
+        return topReddits
     }
     
     
     //MARK: - CoreData
+    func saveResults(context:NSManagedObjectContext) -> Bool {
+        do {
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+            return false
+        }
+        return true
+    }
+    
     func getDataFromDB()->[RedditEntity]{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.getContext()
